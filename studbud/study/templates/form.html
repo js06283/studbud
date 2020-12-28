@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %} 
+    <h1> StudBud Student Form </h1>
+    <body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+    </body>
+{% endblock %}
