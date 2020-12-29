@@ -3,7 +3,6 @@ import uuid
 from django.forms import ModelForm
 import pytz
 
-# Create your models here.
 TIME_MANAGEMENT_CHOICES = [
     (1, 'Finish far before the deadline (days before the deadline)'),
     (2, 'Finish early (a day or two before the deadline)'),
@@ -48,6 +47,10 @@ DISCOVERY_CHOICES = [
     ('snapchat', 'Snapchat'),
     ('student_council', 'Student Council')
 ]
+SEMESTER_CHOICES = [
+    ('spring_2021','Spring 2021'),
+    ('summer_2021', 'Summer 2021')
+]
 
 class Student(models.Model):
     """Model representing a student."""
@@ -55,7 +58,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length = 50)
     uni = models.CharField(max_length = 10)
     email = models.EmailField(max_length = 50)
-    phone = models.CharField(max_length = 15, blank = True, null = True)
+    phone = models.CharField(max_length = 15, null = True, default = '0000000000')
     timezone = models.CharField("Timezone", max_length=128, choices = TIME_ZONE_CHOICES)
                    #choices=[(tz, tz) for tz in pytz.all_timezones], default = 'America/New_York')
     time_management = models.IntegerField(default = 0, choices = TIME_MANAGEMENT_CHOICES)
@@ -64,37 +67,44 @@ class Student(models.Model):
     extroverted = models.IntegerField(default = 0, choices = EXTROVERTED_CHOICES)
     discovery = models.CharField(max_length = 50, choices = DISCOVERY_CHOICES)
     fun_facts = models.CharField(max_length = 100, null = True)
+    course_instances = models.ManyToManyField('CourseInstance')
 
     def __str__(self):
         return self.uni
 
 class StudyGroup(models.Model):
-    """Model representing a class"""
-    group_num = models.CharField(max_length = 10)
+    """Model representing a study group"""
+    group_num = models.CharField(max_length = 10, default = "0000")
     students = models.ManyToManyField('Student')
-    
+    course_instance = models.ForeignKey('CourseInstance', on_delete=models.SET_NULL, null = True)
+
     def __str__(self):
         return self.group_num
 
 class Course(models.Model):
-    name = models.CharField(max_length = 100)
-    course_code = models.CharField(max_length = 10)
+    """Model representing a course"""
+    name = models.CharField(max_length = 100, null = True)
+    course_code = models.CharField(max_length = 10, default = "00000")
     
     def __str__(self):
         return self.course_code 
 
 class CourseInstance(models.Model):
-    section_number = models.CharField(max_length = 3)
-    call_number = models.CharField(max_length = 10)
+    """Model representing a course instance"""
+    course = models.ForeignKey('Course', on_delete=models.SET_NULL, null=True)
+    section_number = models.CharField(max_length = 3, default = "000")
+    call_number = models.CharField(max_length = 10, default = "00000")
     professor = models.ForeignKey('Professor', on_delete=models.SET_NULL, null=True)
-    location = models.CharField(max_length = 50)
-    num_students = models.IntegerField()
-    time = models.CharField(max_length = 50)
+    location = models.CharField(max_length = 50, null = True)
+    num_students = models.IntegerField(null = True)
+    time = models.CharField(max_length = 50, null = True)
+    semester = models.CharField(max_length = 50, choices = SEMESTER_CHOICES, default = "")
 
     def __str__(self):
         return self.call_number
 
 class Professor(models.Model):
+    """Model representing a professor"""
     name = models.CharField(max_length = 50)
 
     def __str__(self):
