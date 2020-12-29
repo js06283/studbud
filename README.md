@@ -42,3 +42,7 @@ python3 manage.py createsuperuser
 
 8. Merge your branch with the master if you are sure that it works
 
+9. Next time, pull the new changes from master
+
+10. Start new branch, repeat 
+
