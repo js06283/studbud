@@ -13,6 +13,7 @@ class Student(models.Model):
     email = models.CharField(max_length = 50)
     timezone = models.CharField("Timezone", max_length=128, 
                    choices=[(tz, tz) for tz in pytz.all_timezones], default = 'America/New_York')
+    time_management = models.IntegerField()
 
     def __str__(self):
         """String for representing the student"""
