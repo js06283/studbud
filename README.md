@@ -1,15 +1,17 @@
 # StudBud-Site
 
 <b>To do:</b>
-Import courses and add search, 
 
-Improve appearance, 
+- Import courses and add search
 
-How to connect groupings to models, 
+- Improve appearance
 
-Fix redirect from home
+- How to connect groupings to models
+
+- Fix redirect from home
 
 <b>Virtual environment commands: </b>
+
 pipenv install django~=3.1.0,
 
 pipenv shell, 
@@ -23,19 +25,20 @@ python3 manage.py runserver,
 python3 manage.py createsuperuser 
 
 <b>Github guide: </b>
-download VScode, 
 
-download Github Pull Requests and Issues Extension, 
+1. download VScode
 
-login to GitHub on VSCode and clone the StudBud Site repository, 
+2. download Github Pull Requests and Issues Extension
 
-Make a branch name it the feature you are working on, 
+3. login to GitHub on VSCode and clone the StudBud Site repository
 
-Open your branch in your workplace and make changes, 
+4. Make a branch name it the feature you are working on
 
-Commit changes to your branch, 
+5. Open your branch in your workplace and make changes
 
-Push your local branch/repository to the cloud, 
+6. Commit changes to your branch
 
-Merge your branch with the master if you are sure that it works
+7. Push your local branch/repository to the cloud
+
+8. Merge your branch with the master if you are sure that it works
 
