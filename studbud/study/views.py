@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect 
 from django.http import HttpResponse
-from .forms import StudentForm 
+from .forms import StudentForm #StudentAddForm
 from django.urls import reverse
 
 def index(request):
@@ -17,3 +17,11 @@ def student_form(request):
     else: 
         form_class = StudentForm
         return render(request, 'form.html', {'form': form_class})
+
+# def student_add_form(request):
+#     student = get_object_or_404(Customer, pk=uni)
+#     form = StudentAddForm(request.POST)
+#     if form.is_valid():
+#         student = form.save(commit=False)
+#         student.uni=student.uni
+#         student.course_instances=student.course_instances
