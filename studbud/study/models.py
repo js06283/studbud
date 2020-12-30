@@ -10,25 +10,25 @@ TIME_MANAGEMENT_CHOICES = [
     (4, 'Finish at the last minute (several minutes before deadline)')
 ]
 COLLABORATIVE_CHOICES = [
-    (1, 'Prefer minimal talking'),
-    (2, ''),
-    (3, ''),
-    (4, ''),
-    (5, 'Very interactive')
+    (1, '1 Prefer minimal talking'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5 Very interactive')
 ]
 SERIOUSNESS_CHOICES = [
-    (1, 'Not so serious'),
-    (2, ''),
-    (3, ''),
-    (4, ''),
-    (5, 'Very serious student')
+    (1, '1 Not so serious'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5 Very serious student')
 ]
 EXTROVERTED_CHOICES = [
-    (1, 'Not extroverted'),
-    (2, ''),
-    (3, ''),
-    (4, ''),
-    (5, 'Very extroverted')
+    (1, '1 Not extroverted'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5 Very extroverted')
 ]
 TIME_ZONE_CHOICES = [
     (1, 'UTC -4 through UTC -5 AKA Eastern (EST) or Central (CST)'),
@@ -101,7 +101,7 @@ class CourseInstance(models.Model):
     semester = models.CharField(max_length = 50, choices = SEMESTER_CHOICES, default = "")
 
     def __str__(self):
-        return self.call_number
+        return str(self.course) + ' sec: ' + self.section_number + ' (' + self.call_number + ')'
 
 class Professor(models.Model):
     """Model representing a professor"""

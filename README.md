@@ -12,15 +12,15 @@
 
 <b>Virtual environment commands: </b>
 
-pipenv install django~=3.1.0,
+pipenv install django~=3.1.0
 
-pipenv shell, 
+pipenv shell
 
-python3 manage.py makemigrations, 
+python3 manage.py makemigrations
 
-python3 manage.py migrate, 
+python3 manage.py migrate
 
-python3 manage.py runserver, 
+python3 manage.py runserver
 
 python3 manage.py createsuperuser 
 
