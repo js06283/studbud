@@ -1,8 +1,10 @@
 from django.contrib import admin
 from .models import Student, Course, CourseInstance, Professor, StudyGroup
+from .forms import StudentForm
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ['last_name', 'first_name', 'uni', 'email']
+    form = StudentForm
 admin.site.register(Student, StudentAdmin)
 
 @admin.register(StudyGroup)
