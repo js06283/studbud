@@ -99,6 +99,11 @@ class CourseInstance(models.Model):
     num_students = models.IntegerField(null = True)
     time = models.CharField(max_length = 50, null = True)
     semester = models.CharField(max_length = 50, choices = SEMESTER_CHOICES, default = "")
+    course_name = models.CharField(max_length = 50, default = 'null')
+
+    def save(self, *args, **kwargs):
+        self.course_name = str(self.course) + ' sec: ' + self.section_number + ' (' + self.call_number + ')'
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return str(self.course) + ' sec: ' + self.section_number + ' (' + self.call_number + ')'
