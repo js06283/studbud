@@ -8,6 +8,7 @@ from study.models import CourseInstance
 from django.urls import reverse_lazy
 from django.forms import modelformset_factory
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 def index(request):
     return render(request, 'index.html')
@@ -32,6 +33,9 @@ class CourseAutocomplete(autocomplete.Select2QuerySetView):
             # qs = qs.filter(reason__icontains=self.q)
 
         return qs
+
+# class StudentCreate(CreateView):
+#     model = student
 
 # class UpdateView(generic.UpdateView):
 #     model = CourseInstance
