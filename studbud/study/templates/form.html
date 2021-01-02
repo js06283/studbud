@@ -1,4 +1,22 @@
-{% extends 'base_generic.html' %}
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %} {# assuming you have a content block within your <body> element #}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+{{ form.media }}
+
+{% endblock %} 
+
+{% comment %} {% extends 'base_generic.html' %}
 {# Don't forget that one ! #}
 {% load static %}
 
@@ -49,18 +67,5 @@
 
 {{ form.media }}
 
-{% endblock %} 
+{% endblock %}  {% endcomment %}
 
-{% comment %} {% extends "base_generic.html" %}
-{% block extrahead %} {# assuming extrahead block is within the <head> element #}
-    {{ block.super }}
-    {{ form.media }}
-{% endblock %}
-
-{% block content %} {# assuming you have a content block within your <body> element #}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Go!</button>
-    </form>
-{% endblock %} {% endcomment %}

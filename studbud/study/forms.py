@@ -92,11 +92,6 @@ class StudentForm(autocomplete.FutureModelForm):
     
     class Meta:
         model = Student
-        # widgets={'course_instances': autocomplete.ModelSelect2Multiple(
-        #     url='course-autocomplete',
-        #     attrs={'data-html':True}
-        #     )
-        # }
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
                      'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','course_instances']
 
