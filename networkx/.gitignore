@@ -1,0 +1,22 @@
+*.pyc
+__pycache__
+*~
+.DS_Store
+
+build/*
+dist/*
+*.egg-info/
+
+# Generated when 'python setup.py build_clib'
+# and 'python setup.py build-ext --inplace'
+nxmetis/_metis.so
+nxmetis/_metis.*.so
+nxmetis/_metis.c
+
+# Sphinx documentation
+doc/build/
+doc/source/reference/generated/
+
+# Sublime Text project files
+*.sublime-project
+*.sublime-workspace
