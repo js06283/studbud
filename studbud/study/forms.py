@@ -60,12 +60,13 @@ class StudentForm(autocomplete.FutureModelForm):
     first_name = forms.CharField(label= 'First Name ', widget=forms.TextInput)
     last_name = forms.CharField(label = 'Last Name ', widget=forms.TextInput)
     uni = forms.CharField(label = 'UNI ', widget=forms.TextInput)
-    email = forms.CharField(label = 'Email ', widget=forms.TextInput)
+    email = forms.EmailField(label = 'Email ', widget=forms.TextInput)
     phone = forms.CharField(label = 'Phone number (optional)')
 
     time_zone = forms.ChoiceField(
         choices = TIME_ZONE_CHOICES, 
-        label = 'Time zone ')
+        label = 'Time zone ',
+        widget = forms.RadioSelect)
     time_management = forms.ChoiceField(
         choices = TIME_MANAGEMENT_CHOICES, 
         initial = 0, 
