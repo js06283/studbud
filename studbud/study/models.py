@@ -67,7 +67,7 @@ class Student(models.Model):
     extroverted = models.IntegerField(default = 0, choices = EXTROVERTED_CHOICES)
     discovery = models.CharField(max_length = 50, choices = DISCOVERY_CHOICES)
     fun_facts = models.CharField(max_length = 100, null = True)
-    course_instances = models.ManyToManyField('CourseInstance')
+    course1 = models.CharField(max_length=50,null=True,blank=True)
 
     def __str__(self):
         return self.uni
