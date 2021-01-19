@@ -11,3 +11,7 @@ class CoursesLookup(LookupChannel):
 
     def format_item_display(self, item):
         return u"<span class='tag'>%s</span>" % item.course_name
+
+    def check_auth(self, request):
+        if request.user.get_profile() :
+            return True

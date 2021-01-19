@@ -4,7 +4,7 @@ from django.forms import ModelForm
 import pytz
 from django.utils.safestring import mark_safe
 from django.forms.widgets import RadioSelect, Textarea
-from dal import autocomplete
+# from dal import autocomplete
 from django.utils.html import format_html
 from ajax_select.fields import AutoCompleteSelectMultipleField
 from ajax_select import make_ajax_field
@@ -54,9 +54,9 @@ DISCOVERY_CHOICES = [
     ('student_council', 'Student Council')
 ]
 
-class CourseAutocomplete(autocomplete.Select2QuerySetView):
-    def get_result_label(self, item):
-        return format_html('<img src="flags/{}.png"> {}', item.name, item.name)
+# class CourseAutocomplete(autocomplete.Select2QuerySetView):
+#     def get_result_label(self, item):
+#         return format_html('<img src="flags/{}.png"> {}', item.name, item.name)
 
 class StudentForm(ModelForm):
     first_name = forms.CharField(label= 'First Name ', widget=forms.TextInput)
@@ -86,8 +86,8 @@ class StudentForm(ModelForm):
         choices = EXTROVERTED_CHOICES, 
         widget = forms.RadioSelect, 
         label = 'How extroverted are you?')
-    discovery = forms.MultipleChoiceField(choices = DISCOVERY_CHOICES, 
-        widget = forms.CheckboxSelectMultiple)
+    discovery = forms.ChoiceField(choices = DISCOVERY_CHOICES, 
+        widget = forms.RadioSelect)
     fun_facts = forms.CharField(widget=Textarea)
     
     
@@ -95,6 +95,7 @@ class StudentForm(ModelForm):
         model = Student
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
                      'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','courses']
+    
     courses = AutoCompleteSelectMultipleField('courses')
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
