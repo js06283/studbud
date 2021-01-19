@@ -1,8 +1,9 @@
 from django.contrib import admin
 from .models import Student, Course, CourseInstance, Professor, StudyGroup
 from .forms import StudentForm
+from ajax_select.admin import AjaxSelectAdmin
 
-class StudentAdmin(admin.ModelAdmin):
+class StudentAdmin(AjaxSelectAdmin):
     list_display = ['last_name', 'first_name', 'uni', 'email']
     form = StudentForm
 admin.site.register(Student, StudentAdmin)

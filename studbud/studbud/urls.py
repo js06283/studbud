@@ -19,11 +19,13 @@ from django.urls import include
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from ajax_select import urls as ajax_select_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('study/', include('study.urls')),
     path('', RedirectView.as_view(url='study/', permanent=True)),
+    path('ajax_select/', include(ajax_select_urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

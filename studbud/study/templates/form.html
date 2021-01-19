@@ -7,8 +7,9 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.js"></script>
 </head>  {% endcomment %}
 {% block content %}
-<form method="POST" action="">
+<form method="POST">
     {% csrf_token %}
+    {{ form.media }}
     {{ form.as_p }}
     
     <input type="submit" value="Submit" />
@@ -18,7 +19,7 @@
 {% block footer %} 
     <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
     
-    {{ form.media }}
+    
     {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     {{ form.media }} {% endcomment %}
     {% comment %} <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script> {% endcomment %}

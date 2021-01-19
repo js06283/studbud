@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'dal',
     'dal_select2',
+    'ajax_select',
     # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',

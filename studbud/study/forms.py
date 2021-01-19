@@ -6,6 +6,8 @@ from django.utils.safestring import mark_safe
 from django.forms.widgets import RadioSelect, Textarea
 from dal import autocomplete
 from django.utils.html import format_html
+from ajax_select.fields import AutoCompleteSelectMultipleField
+from ajax_select import make_ajax_field
 
 TIME_MANAGEMENT_CHOICES = [
     (1, 'Finish far before the deadline (days before the deadline)'),
@@ -52,11 +54,11 @@ DISCOVERY_CHOICES = [
     ('student_council', 'Student Council')
 ]
 
-# class CourseAutocomplete(autocomplete.Select2QuerySetView):
-#     def get_result_label(self, item):
-#         return format_html('<img src="flags/{}.png"> {}', item.name, item.name)
+class CourseAutocomplete(autocomplete.Select2QuerySetView):
+    def get_result_label(self, item):
+        return format_html('<img src="flags/{}.png"> {}', item.name, item.name)
 
-class StudentForm(autocomplete.FutureModelForm):
+class StudentForm(ModelForm):
     first_name = forms.CharField(label= 'First Name ', widget=forms.TextInput)
     last_name = forms.CharField(label = 'Last Name ', widget=forms.TextInput)
     uni = forms.CharField(label = 'UNI ', widget=forms.TextInput)
@@ -86,15 +88,13 @@ class StudentForm(autocomplete.FutureModelForm):
     discovery = forms.MultipleChoiceField(choices = DISCOVERY_CHOICES, 
         widget = forms.CheckboxSelectMultiple)
     fun_facts = forms.CharField(widget=Textarea)
-    class1 = forms.ModelChoiceField(
-        queryset = CourseInstance.objects.all(), 
-        widget = autocomplete.ModelSelect2(url='course-autocomplete'))
+    
     
     class Meta:
         model = Student
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
-                     'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','class1']
-
+                     'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','courses']
+    courses = AutoCompleteSelectMultipleField('courses')
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
 #     course_instances = forms.MultipleChoiceField(queryset = CourseInstance.objects.all())
