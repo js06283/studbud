@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dal',
-    'dal_select2',
+    # 'dal',
+    # 'dal_select2',
     'ajax_select',
     # 'grappelli',
     'django.contrib.admin',
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'study.apps.StudyConfig',
+    'import_export'
 ]
 
 MIDDLEWARE = [

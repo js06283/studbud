@@ -91,23 +91,29 @@ class Course(models.Model):
 
 class CourseInstance(models.Model):
     """Model representing a course instance"""
-    course = models.ForeignKey('Course', on_delete=models.SET_NULL, null=True)
+    #course = models.ForeignKey('Course', on_delete=models.SET_NULL, null=True)
+    course = models.CharField(max_length = 50, default = '')
     section_number = models.CharField(max_length = 3, default = "000")
     call_number = models.CharField(max_length = 10, default = "00000")
-    professor = models.ForeignKey('Professor', on_delete=models.SET_NULL, null=True)
-    location = models.CharField(max_length = 50, null = True)
+    #professor = models.ForeignKey('Professor', on_delete=models.SET_NULL, null=True)
+    professor = models.CharField(max_length = 50, default = '')
+    #location = models.CharField(max_length = 50, null = True)
     num_students = models.IntegerField(null = True)
     time = models.CharField(max_length = 50, null = True)
-    semester = models.CharField(max_length = 50, choices = SEMESTER_CHOICES, default = "")
-    course_name = models.CharField(max_length = 50, default = 'null')
+    #semester = models.CharField(max_length = 50, choices = SEMESTER_CHOICES, default = "")
+    semester = models.CharField(max_length = 50, default = '')
+    course_title = models.CharField(max_length = 50, default = '')
+    course_name = models.CharField(max_length = 150, default = 'null')
+    course_query = models.CharField(max_length = 250, default = 'null')
 
     def save(self, *args, **kwargs):
-        self.course_name = str(self.course) + ' sec: ' + self.section_number + ' (' + self.call_number + ')'
+        self.course_name = str(self.course) + ' ' + str(self.course_title)  +  ' ' + self.time + ' (' + self.call_number + ')'
+        self.course_query = str(self.course) + ' ' + str(self.course_title) + ' sec: ' + self.section_number + ' ' + self.time + ' ' + self.professor + ' ' + self.call_number 
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return str(self.course) + ' sec: ' + self.section_number + ' (' + self.call_number + ')'
-
+        return str(self.course) + ' ' + str(self.course_title)  + ' ' + self.time
+        
 class Professor(models.Model):
     """Model representing a professor"""
     name = models.CharField(max_length = 50)

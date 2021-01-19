@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect 
 from django.http import HttpResponse
+# Version with working http
 from .forms import StudentForm #StudentAddForm
 from django.urls import reverse
-from dal import autocomplete
+# from dal import autocomplete
 from study.models import CourseInstance
 from django.urls import reverse_lazy
 from django.forms import modelformset_factory
@@ -19,20 +20,20 @@ def student_form(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('student_form')
+            return redirect('/study/form/')
     else: 
         form_class = StudentForm
         return render(request, 'form.html', {'form': form_class})
 
-class CourseAutocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-        qs = CourseInstance.objects.all()
+# class CourseAutocomplete(autocomplete.Select2QuerySetView):
+#     def get_queryset(self):
+#         qs = CourseInstance.objects.all()
 
-        if self.q:
-            qs = qs.filter(course_name__istartswith=self.q)
-            # qs = qs.filter(reason__icontains=self.q)
+#         if self.q:
+#             qs = qs.filter(course_name__istartswith=self.q)
+#             # qs = qs.filter(reason__icontains=self.q)
 
-        return qs
+#         return qs
 
 # class StudentCreate(CreateView):
 #     model = student
