@@ -1,5 +1,32 @@
 {% extends "base_generic.html" %}
 {% load static %}
+{% comment %} <head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.js"></script>
+</head>  {% endcomment %}
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}
+
+{% block footer %} 
+    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+    
+    {{ form.media }}
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    {{ form.media }} {% endcomment %}
+    {% comment %} <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script> {% endcomment %}
+
+{% endblock %}
+
+{% comment %} 
+{% load static %}
 
 {% block content %} {# assuming you have a content block within your <body> element #}
     <form method="POST">
@@ -11,10 +38,17 @@
 
 {% block footer %}
 
+<link href="/static/autocomplete_light/vendor/select2/dist/css/select2.css" type="text/css" media="all" rel="stylesheet" />
+<link href="/static/autocomplete_light/select2.css" type="text/css" media="all" rel="stylesheet" />
+<script type="text/javascript" src="/static/autocomplete_light/jquery.init.js"></script>
+<script type="text/javascript" src="/static/autocomplete_light/autocomplete.init.js"></script>
+<script type="text/javascript" src="/static/autocomplete_light/vendor/select2/dist/js/select2.full.js"></script>
+<script type="text/javascript" src="/static/autocomplete_light/select2.js"></script>
 <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
-{{ form.media }}
 
-{% endblock %} 
+{{ StudentForm.media }}
+
+{% endblock %}   {% endcomment %}
 
 {% comment %} {% extends 'base_generic.html' %}
 {# Don't forget that one ! #}
@@ -65,7 +99,7 @@
 })($)
 </script>
 
-{{ form.media }}
+{{ student_form.media }}
 
 {% endblock %}  {% endcomment %}
 

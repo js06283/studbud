@@ -86,14 +86,14 @@ class StudentForm(autocomplete.FutureModelForm):
     discovery = forms.MultipleChoiceField(choices = DISCOVERY_CHOICES, 
         widget = forms.CheckboxSelectMultiple)
     fun_facts = forms.CharField(widget=Textarea)
-    course_instances = forms.ModelMultipleChoiceField(
+    class1 = forms.ModelChoiceField(
         queryset = CourseInstance.objects.all(), 
-        widget = autocomplete.ModelSelect2Multiple(url='course-autocomplete'))
+        widget = autocomplete.ModelSelect2(url='course-autocomplete'))
     
     class Meta:
         model = Student
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
-                     'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','course_instances']
+                     'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','class1']
 
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
