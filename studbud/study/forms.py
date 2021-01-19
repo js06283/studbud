@@ -95,6 +95,7 @@ class StudentForm(ModelForm):
         model = Student
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
                      'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','courses']
+    
     courses = AutoCompleteSelectMultipleField('courses')
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
