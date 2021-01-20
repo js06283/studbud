@@ -1,1 +1,1 @@
-web: gunicorn studbud.wsgi --log-file -
+web: gunicorn studbud.wsgi --log-file - --log-level debug
