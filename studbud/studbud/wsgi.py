@@ -13,6 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 sys.path.append('/Users/junpingshi/GitStudBud/StudBud-Site/studbud') 
 sys.path.append('/Users/junpingshi/GitStudBud/StudBud-Site/studbud/studbud')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studbud.studbud.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studbud.settings')
 
 application = get_wsgi_application()
