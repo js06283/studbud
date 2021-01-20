@@ -7,6 +7,7 @@ django-autocomplete-light==3.8.1
 django-import-export==2.5.0
 django-searchable-select==1.5.0
 et-xmlfile==1.0.1
+gunicorn==20.0.4
 jdcal==1.4.1
 MarkupPy==1.14
 odfpy==1.4.1
