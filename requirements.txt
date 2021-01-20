@@ -28,9 +28,9 @@ lazy-object-proxy==1.4.3
 MarkupPy==1.14
 matplotlib==3.3.2
 mccabe==0.6.1
-metis==0.2a4
-networkx==2.5
-networkx-metis==1.0
+# metis==0.2a4
+# networkx==2.5
+# networkx-metis==1.0
 numpy==1.19.2
 odfpy==1.4.1
 openpyxl==3.0.6

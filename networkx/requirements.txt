@@ -1,5 +1,0 @@
-Cython
-networkx
-decorator
-six
-enum34
