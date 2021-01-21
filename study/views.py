@@ -14,13 +14,16 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 def index(request):
     return render(request, 'index.html')
 
+def confirmation(request):
+    return render(request, 'confirmation.html')
+
 def student_form(request):
 
     if request.method == 'POST': 
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/study/form/')
+            return redirect('/study/confirm/')
     else: 
         form_class = StudentForm
         return render(request, 'form.html', {'form': form_class})

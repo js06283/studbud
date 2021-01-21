@@ -63,7 +63,7 @@ class StudentForm(ModelForm):
     last_name = forms.CharField(label = 'Last Name ', widget=forms.TextInput)
     uni = forms.CharField(label = 'UNI ', widget=forms.TextInput)
     email = forms.EmailField(label = 'Email ', widget=forms.TextInput)
-    phone = forms.CharField(label = 'Phone number (optional)')
+    phone = forms.CharField(label = 'Phone number')
 
     time_zone = forms.ChoiceField(
         choices = TIME_ZONE_CHOICES, 
