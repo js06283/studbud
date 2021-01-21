@@ -11,6 +11,7 @@
     {% csrf_token %}
     {{ form.media }}
     {{ form.as_p }}
+    {{ form.email.errors}}
     
     <input type="submit" value="Submit"/>
 </form>

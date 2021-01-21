@@ -24,9 +24,11 @@ def student_form(request):
         if form.is_valid():
             form.save()
             return redirect('/study/confirm/')
-    else: 
-        form_class = StudentForm
-        return render(request, 'form.html', {'form': form_class})
+    else:
+        form = StudentForm
+    context = {'form': form}
+
+    return render(request, 'form.html', context)
 
 # class CourseAutocomplete(autocomplete.Select2QuerySetView):
 #     def get_queryset(self):
