@@ -65,7 +65,7 @@ class StudentForm(ModelForm):
     email = forms.EmailField(label = 'Email ', widget=forms.TextInput)
     phone = forms.CharField(label = 'Phone number')
 
-    time_zone = forms.ChoiceField(
+    timezone = forms.ChoiceField(
         choices = TIME_ZONE_CHOICES, 
         label = 'Time zone ',
         widget = forms.RadioSelect)
@@ -94,7 +94,7 @@ class StudentForm(ModelForm):
     
     class Meta:
         model = Student
-        fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
+        fields = ['first_name', 'last_name', 'uni', 'email', 'phone','timezone', 'time_management',
                      'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','courses']
     
     courses = AutoCompleteSelectMultipleField('courses', 
