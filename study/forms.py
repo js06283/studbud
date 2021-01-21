@@ -88,7 +88,8 @@ class StudentForm(ModelForm):
         label = 'How extroverted are you?')
     discovery = forms.ChoiceField(choices = DISCOVERY_CHOICES, 
         widget = forms.RadioSelect)
-    fun_facts = forms.CharField(widget=Textarea)
+    fun_facts = forms.CharField(widget=Textarea, 
+        label='Enter one fun fact about yourself!')
     
     
     class Meta:
@@ -96,7 +97,9 @@ class StudentForm(ModelForm):
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','time_zone', 'time_management',
                      'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','courses']
     
-    courses = AutoCompleteSelectMultipleField('courses')
+    courses = AutoCompleteSelectMultipleField('courses', 
+        help_text='Search by Professor, Course name, or Call number (at least 3 characters). Please add all courses you would like a study group for.')
+
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
 #     course_instances = forms.MultipleChoiceField(queryset = CourseInstance.objects.all())
