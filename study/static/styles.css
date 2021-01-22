@@ -1,0 +1,30 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#logo img {
+    max-width: 1200px;
+    width: 100%;
+    height: auto; 
+}
+
+.footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:lightsteelblue;
+    color:black;
+    text-align: center;
+  }
+
+  #logo-2 img{
+      width: 100px;
+      height: auto;
+  }
+
+  #contact ul{
+    list-style: none;
+  }

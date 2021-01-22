@@ -7,14 +7,16 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.js"></script>
 </head>  {% endcomment %}
 {% block content %}
-<form action="/study/form/" method="post">
-    {% csrf_token %}
-    {{ form.media }}
-    {{ form.as_p }}
-    {{ form.email.errors}}
-    
-    <input type="submit" value="Submit"/>
-</form>
+<div class= 'container-fluid'>
+    <form action="/study/form/" method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        {{ form.email.errors}}
+        
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
 {% endblock %}
 
 {% block footer %} 
