@@ -68,8 +68,8 @@ DISCOVERY_CHOICES = [
 class StudentForm(ModelForm):
     first_name = forms.CharField(label= 'First Name ', widget=forms.TextInput)
     last_name = forms.CharField(label = 'Last Name ', widget=forms.TextInput)
-    uni = forms.CharField(label = 'UNI ', widget=forms.TextInput)
-    email = forms.EmailField(label = 'Email ', widget=forms.TextInput)
+    uni = forms.CharField(label = 'UNI ', widget=forms.TextInput, error_messages={'unique': 'Student with this UNI already exists, if this is a mistake or you would like to add more courses, please email studbud.columbia@gmail.com.'})
+    email = forms.EmailField(label = 'Email ', widget=forms.TextInput, error_messages={'unique': 'Student with this email already exists, if this is a mistake or you would like to add more courses, please email studbud.columbia@gmail.com.'})
     phone = forms.CharField(label = 'Phone number')
 
     timezone = forms.ChoiceField(
@@ -95,21 +95,18 @@ class StudentForm(ModelForm):
         label = 'How extroverted are you?')
     discovery = forms.ChoiceField(choices = DISCOVERY_CHOICES, 
         widget = forms.RadioSelect)
-    fun_facts = forms.CharField(widget=Textarea, 
-        label='Enter one fun fact about yourself!')
-    
+    fun_facts = forms.CharField(widget=Textarea(attrs={"rows":3, "cols":30}), 
+       label='Enter one fun fact about yourself!')
+    courses = AutoCompleteSelectMultipleField('courses', 
+        label = 'Courses (enter at least 3 characters of your professor, course name, or call number to search)',
+        help_text='Searching for your course will initiate a dropdown menu of courses to select from. Be sure to find the correct section number for your course if there are multiple. You may select multiple courses, so please add all courses you would like a study group for before submitting.')
     
     class Meta:
         model = Student
         fields = ['first_name', 'last_name', 'uni', 'email', 'phone','timezone', 'time_management',
                      'collaborative', 'academic_seriousness', 'extroverted', 'discovery','fun_facts','courses']
     
-    courses = AutoCompleteSelectMultipleField('courses', 
-        help_text='Search by Professor, Course name, or Call number (at least 3 characters). Please add all courses you would like a study group for.')
-
     
-
-
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
 #     course_instances = forms.MultipleChoiceField(queryset = CourseInstance.objects.all())

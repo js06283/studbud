@@ -56,8 +56,8 @@ class Student(models.Model):
     """Model representing a student."""
     first_name = models.CharField(max_length = 255)
     last_name = models.CharField(max_length = 255)
-    uni = models.CharField(max_length = 255)
-    email = models.EmailField(max_length = 255)
+    uni = models.CharField(max_length = 255, unique=True)
+    email = models.EmailField(max_length = 255, unique=True)
     phone = models.CharField(max_length = 255, null = True, default = '0000000000')
     timezone = models.IntegerField(default = 0, choices = TIME_ZONE_CHOICES)
     time_management = models.IntegerField(default = 0, choices = TIME_MANAGEMENT_CHOICES)
