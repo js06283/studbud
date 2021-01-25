@@ -1,14 +1,91 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1> Welcome to StudBud! </h1>
-    <p> Looking for a study group? Sign up for StudBud! <br><br>
+    <br>
+    <h1 style=text-align:center;> Looking for a study group? Sign up for StudBud!  </h1>
+    <br>
 
-    StudBud is a social platform that matches students into ideal study groups with a machine learning algorithm. 
+    <p style="text-align:center; ">StudBud is a social platform that matches students into ideal study groups with a machine learning algorithm. 
     We’re all about bringing people together and creating a sense of community during this crazy time.<br><br>
 
-    If you want to study better, buddy better, and have a good semester, sign up here before January 31st. Study groups will be released on February 2nd.
-    <br><br>
-    Thanks,<br>
-    The StudBud Team</p>
+    If you want to study better, buddy better, and have a good semester, sign up here by <b style = "color: rgb(216, 89, 38)";>Sunday, January 31 11:59 PM EST</b>. Study groups will be released on Tuesday, February 2.
+    </p>
+
+    
+<br><br>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion {
+  background-color: rgb(240, 226, 226);
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: rgb(176, 216, 240); 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<h2 style = "text-align:center; ">FAQs</h2>
+<br>
+
+<div class="container" style="text-align:center;">
+    <button class="accordion", style = "text-align:center; " >How Does StudBud Work?</button>
+    <div class="panel">
+        <ol>
+            <li style="text-align:center; ">Fill out the student survey indicating your study habits and preferences as well as which classes you want study groups for. </li>
+            <li style="text-align:center; ">Wait for an email from us. Based on your survey responses, we use a machine learning algorithm to create the best study groups for you. You'll hear from us with your group of 3-5 students by Tuesday, February 2. </li>
+            <li style="text-align:center; ">Meet with your group! After you get matched, start working together on psets, assignments, and studying.</li>
+        </ol>
+    </div>
+
+    <button class="accordion", style = "text-align:center; ">Will StudBud organize meetings after the initial one?</button>
+    <div class="panel">
+        <p>After your first meeting, it’s up to you and your group to continue meeting in the future! We will send your follow-up emails throughout the semester to stay in touch to make sure everything is going well!</p>
+    </div>
+
+    <button class="accordion", style = "text-align:center; ">What do I do if I drop a course or change sections?</button>
+    <div class="panel">
+        <p>Email us at studbud.columbia@gmail.com with any information about changes to your schedule! Please do NOT submit another form to add a course.</p>
+    </div>
+</div>
+<br>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+
+
+
 {% endblock %}

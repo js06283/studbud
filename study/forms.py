@@ -96,7 +96,7 @@ class StudentForm(ModelForm):
     discovery = forms.ChoiceField(choices = DISCOVERY_CHOICES, 
         widget = forms.RadioSelect)
     fun_facts = forms.CharField(widget=Textarea(attrs={"rows":3, "cols":30}), 
-       label='Enter one fun fact about yourself!')
+       label='Enter one fun fact about yourself! This will be shared with your group(s)')
     courses = AutoCompleteSelectMultipleField('courses', 
         label = 'Courses (enter at least 3 characters of your professor, course name, or call number to search)',
         help_text='Searching for your course will initiate a dropdown menu of courses to select from. Be sure to find the correct section number for your course if there are multiple. You may select multiple courses, so please add all courses you would like a study group for before submitting.')
