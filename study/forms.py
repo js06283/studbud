@@ -8,6 +8,13 @@ from django.forms.widgets import RadioSelect, Textarea
 from django.utils.html import format_html
 from ajax_select.fields import AutoCompleteSelectMultipleField
 from ajax_select import make_ajax_field
+from django.forms import widgets
+
+
+#THIS CLASS ISN'T WORKING -- horizontal radio buttons. also be sure to change the widget type for the different options in StudentForm class
+# class HorizontalRadioRenderer(forms.RadioSelect):
+#     def render(self, name, value, attrs=None, renderer=None):
+#         return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
 
 TIME_MANAGEMENT_CHOICES = [
     (1, 'Finish far before the deadline (days before the deadline)'),
@@ -76,7 +83,7 @@ class StudentForm(ModelForm):
         label = 'How do you manage your time for assignments?')
     collaborative = forms.ChoiceField(
         choices = COLLABORATIVE_CHOICES, 
-        widget = forms.RadioSelect, 
+        widget=forms.RadioSelect, 
         label = 'How collaborative are you?')
     academic_seriousness = forms.ChoiceField(
         choices = SERIOUSNESS_CHOICES, 
@@ -99,6 +106,9 @@ class StudentForm(ModelForm):
     
     courses = AutoCompleteSelectMultipleField('courses', 
         help_text='Search by Professor, Course name, or Call number (at least 3 characters). Please add all courses you would like a study group for.')
+
+    
+
 
 # class StudentAddForm(ModelForm):
 #     uni = forms.CharField(label = 'UNI')
