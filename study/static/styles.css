@@ -33,12 +33,20 @@ font-family: 'Gill Sans', sans-serif;
     font-size: 60px;
     background-color: rgb(218, 227, 240); 
 }
+
 .front-text{
     width: 75%;
     font-family: 'Gill Sans', sans-serif;
-    font-size: 60px;
-    margin: auto;
+    margin: 100px;
 }
+
+@media only screen and (max-width: 767px) {
+
+    .front {
+       font-size: 30px;
+    }
+ 
+ }
 
 form {
     margin: 0 auto; 
