@@ -45,7 +45,8 @@ DISCOVERY_CHOICES = [
     ('instagram', 'Instagram'),
     ('slack', 'Slack'),
     ('snapchat', 'Snapchat'),
-    ('student_council', 'Student Council')
+    ('student_council', 'Student Council'),
+    ('other', 'Other')
 ]
 SEMESTER_CHOICES = [
     ('spring_2021','Spring 2021'),

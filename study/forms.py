@@ -23,25 +23,25 @@ TIME_MANAGEMENT_CHOICES = [
     (4, 'Finish at the last minute (several minutes before deadline)')
 ]
 COLLABORATIVE_CHOICES = [
-    (1, '1 Prefer minimal talking'),
+    (1, '1'),
     (2, '2'),
     (3, '3'),
     (4, '4'),
-    (5, '5 Very interactive')
+    (5, '5')
 ]
 SERIOUSNESS_CHOICES = [
-    (1, '1 Not so serious'),
+    (1, '1'),
     (2, '2'),
     (3, '3'),
     (4, '4'),
-    (5, '5 Very serious student')
+    (5, '5')
 ]
 EXTROVERTED_CHOICES = [
-    (1, '1 Not extroverted'),
+    (1, '1'),
     (2, '2'),
     (3, '3'),
     (4, '4'),
-    (5, '5 Very extroverted')
+    (5, '5')
 ]
 TIME_ZONE_CHOICES = [
     (1, 'UTC -4 through UTC -5 AKA Eastern (EST) or Central (CST)'),
@@ -58,7 +58,8 @@ DISCOVERY_CHOICES = [
     ('instagram', 'Instagram'),
     ('slack', 'Slack'),
     ('snapchat', 'Snapchat'),
-    ('student_council', 'Student Council')
+    ('student_council', 'Student Council'),
+    ('other', 'Other')
 ]
 
 # class CourseAutocomplete(autocomplete.Select2QuerySetView):
@@ -84,17 +85,18 @@ class StudentForm(ModelForm):
     collaborative = forms.ChoiceField(
         choices = COLLABORATIVE_CHOICES, 
         widget=forms.RadioSelect, 
-        label = 'How collaborative are you?')
+        label = 'How collaborative are you? (1 = prefer minimal talking, 5 = very interactive)')
     academic_seriousness = forms.ChoiceField(
         choices = SERIOUSNESS_CHOICES, 
         widget = forms.RadioSelect, 
-        label = 'How serious of a student are you?')
+        label = 'How serious of a student are you? (1 = not so serious, 5 = very serious)')
     extroverted = forms.ChoiceField(
         choices = EXTROVERTED_CHOICES, 
         widget = forms.RadioSelect, 
-        label = 'How extroverted are you?')
+        label = 'How extroverted are you? (1 = not extroverted, 5 = very extroverted)')
     discovery = forms.ChoiceField(choices = DISCOVERY_CHOICES, 
-        widget = forms.RadioSelect)
+        widget = forms.RadioSelect,
+        label='How did you hear about us?')
     fun_facts = forms.CharField(widget=Textarea(attrs={"rows":3, "cols":30}), 
        label='Enter one fun fact about yourself! This will be shared with your group(s)')
     courses = AutoCompleteSelectMultipleField('courses', 

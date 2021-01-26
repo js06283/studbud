@@ -22,6 +22,10 @@ width: 50%;
     background-color: rgb(240, 226, 226);
 }
 
+.navbar-nav a {
+    font-size: 25px;
+}
+
 form ul.inline {
 margin-left: 0;
 padding: 0;
