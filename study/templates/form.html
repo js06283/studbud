@@ -7,8 +7,17 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.full.js"></script>
 </head>  {% endcomment %}
 {% block content %}
+<br/>
+<br/>
 <div class= 'container-fluid'>
     <form action="/study/form/" method="post">
+        <h1 style=text-align:center;> Student Study Group Matching Form </h1>
+        <p style='text-align:center;' class = 'form-text'>
+            Fill out this form to be matched to a study group from your classes. You should only submit the form <b>ONCE</b> 
+            for all of your classes. You must answer all of the questions in the form. If you have any questions or need to add/delete a course, please email studbud.columbia@gmail.com. 
+            The deadline is <b style = "color: rgb(216, 89, 38)";>Sunday, January 31 11:59 PM EST</b>. 
+        </p>
+        <br/><br/>
         {% csrf_token %}
         {{ form.media }}
         {{ form.as_p }}

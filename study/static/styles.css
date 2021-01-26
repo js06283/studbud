@@ -1,3 +1,4 @@
+{% load static %}
 .sidebar-nav {
   margin-top: 20px;
   padding: 0;
@@ -17,15 +18,35 @@ margin-right: auto;
 width: 50%;
 }
 
+.navbar-custom {
+    background-color: rgb(240, 226, 226);
+}
+
 form ul.inline {
 margin-left: 0;
 padding: 0;
 font-family: 'Gill Sans', sans-serif;
 }
 
+.front{
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 60px;
+    background-color: rgb(218, 227, 240); 
+}
+.front-text{
+    width: 75%;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 60px;
+    margin: auto;
+}
+
 form {
     margin: 0 auto; 
     width: 75%;
+}
+
+.faq {
+    background-color: rgb(218, 227, 240);
 }
 
 .container-fluid {
@@ -42,7 +63,9 @@ form {
     text-align: center;
     font-family: 'Gill Sans', sans-serif;
   }
-
+.welcome {
+    background-color:rgb(240, 226, 226);
+}
   #logo-2 img{
       width: 100px;
       height: auto;

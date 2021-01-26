@@ -1,8 +1,23 @@
 {% extends "base_generic.html" %}
-
+{% load static %}
 {% block content %}
     <br>
+    <div class='front'>
+    <div  style="background: url({% static 'background.png' %}); background-size: 800px; background-position: center; background-repeat: no-repeat">
+        <h1 class="front-text">
+        <br>
+            STUDY BETTER<br>
+            BUDDY BETTER<br>
+            StudBud.
+        <br>
+        <br>
+        </h1>
+    </div>
+    </div>
+    
     <div class = "welcome">
+        <br>
+        <br>
         <h1 style=text-align:center;> Looking for a study group? Sign up for StudBud!  </h1>
         <br>
         <p style="text-align:center; ">StudBud is a social platform that matches students into ideal study groups with a machine learning algorithm. 
@@ -13,12 +28,11 @@
             <br>
             Study groups will be released on Tuesday, February 2.
         </p>
+        <br><br>
     </div>
     
-    
+  
 
-    
-<br><br>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .accordion {
@@ -47,12 +61,13 @@
 </style>
 </head>
 <body>
-
+<div class='faq'>
+<br>
 <h2 style = "text-align:center; ">FAQs</h2>
 <br>
 
 <div class="container">
-    <button class="accordion", style="text-align:center" >How Does StudBud Work?</button>
+    <button class="accordion", style="text-align:center" >How does StudBud Work?</button>
     <div class="panel">
         <ol>
             <li >Fill out the student survey indicating your study habits and preferences as well as which classes you want study groups for. </li>
@@ -61,18 +76,18 @@
         </ol>
     </div>
 
-    <button class="accordion", style="text-align:center">Will StudBud organize meetings after the initial one?</button>
+    <button class="accordion", style="text-align:center">How will StudBud help facilitate meetings?</button>
     <div class="panel">
-        <p>After your first meeting, it’s up to you and your group to continue meeting in the future! We will send your follow-up emails throughout the semester to stay in touch to make sure everything is going well!</p>
+        <p>We will set each group up with their own personalized GroupMe link, so group members will easily be able to schedule meetings and chat with each other. We will also send your follow-up emails throughout the semester to stay in touch to make sure everything is going well!</p>
     </div>
 
     <button class="accordion", style="text-align:center">What do I do if I drop a course or change sections?</button>
     <div class="panel">
-        <p>Email us at studbud.columbia@gmail.com with any information about changes to your schedule! Please do NOT submit another form to add a course.</p>
+        <p>Email us at studbud.columbia@gmail.com with any information about changes to your schedule! Please do NOT submit another form to add or delete a course.</p>
     </div>
 </div>
 <br>
-
+</div>
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;
