@@ -1,0 +1,141 @@
+{% load static %}
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+#logo img {
+  max-width: 800px;
+  width: 100%;
+  height: auto; 
+}
+
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
+
+.navbar-custom {
+    background-color: rgb(240, 226, 226);
+}
+
+.navbar-nav a {
+    font-size: 25px;
+}
+
+form ul.inline {
+margin-left: 0;
+padding: 0;
+font-family: 'Gill Sans', sans-serif;
+}
+
+.front{
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 60px;
+    background-color: rgb(218, 227, 240); 
+}
+
+.front-text{
+    width: 75%;
+    font-family: 'Gill Sans', sans-serif;
+    margin: auto;
+}
+
+@media only screen and (max-width: 820px) {
+
+    .front {
+       font-size: 20px;
+    }
+ 
+ }
+
+form {
+    margin: 0 auto; 
+    width: 75%;
+}
+
+.faq {
+    background-color: rgb(218, 227, 240);
+}
+
+.container-fluid {
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color:black;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+  }
+.welcome {
+    background-color:rgb(240, 226, 226);
+}
+  #logo-2 img{
+      width: 100px;
+      height: auto;
+  }
+
+  #contact ul{
+    list-style: none;
+  }
+
+  ul li {
+    list-style: none;
+}
+
+.errorlist{
+      color: red;
+}
+p {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 20px
+}
+
+li {
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 20px
+}
+h1{
+    font-family: 'Gill Sans', sans-serif;
+}
+h2{
+    font-family: 'Gill Sans', sans-serif;
+}
+
+
+
+
+
+
+/*.errorlist{
+  color: red;
+  position: fixed; 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:lightsteelblue;
+  color:black;
+  text-align: center;
+}*/
+
+/*#logo-2 img{
+    width: 100px;
+    height: auto;
+}
+
+#contact ul{
+  list-style: none;
+}
+
+ul li {
+  list-style: none;
+}*/
+
