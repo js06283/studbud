@@ -21,9 +21,6 @@ class CourseAdmin(admin.ModelAdmin):
 class CourseInstanceAdmin(ImportExportModelAdmin):
     list_display = ['course', 'course_title', 'section_number', 'call_number']
 
-    def has_add_permission(self, request, obj=None):
-        return False
-
 @admin.register(Professor)
 class ProfessorAdmin(admin.ModelAdmin):
     pass
