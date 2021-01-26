@@ -108,13 +108,13 @@ class CourseInstance(models.Model):
 
     def save(self, *args, **kwargs):
         self.course_name = str(self.course) + ' ' + str(self.course_title)  +  ' ' + self.time + ' (' + self.call_number + ')'
-        self.course_query = str(self.course) + ' ' + str(self.course_title) + ' sec: ' + self.section_number + ' ' + self.time + ' ' + self.professor + ' ' + self.call_number 
+        self.course_query = str(self.course) + ' ' + str(self.course_title) + ' ' + self.time + ' ' + self.section_number + ' ' + self.professor + ' ' + self.call_number 
         super().save(*args, **kwargs)
 
     def __str__(self):
         if (len(self.time) == 0):
-            return str(self.course) + ' ' + str(self.course_title)  + '  ' + self.section_number
-        return str(self.course) + ' ' + str(self.course_title)  + '  ' + self.time
+            return str(self.course) + ' ' + str(self.course_title)  + ' ' + self.section_number
+        return str(self.course) + ' ' + str(self.course_title)  + ' ' + self.time
         
 class Professor(models.Model):
     """Model representing a professor"""
