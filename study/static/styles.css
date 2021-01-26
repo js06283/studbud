@@ -37,7 +37,7 @@ font-family: 'Gill Sans', sans-serif;
 .front-text{
     width: 75%;
     font-family: 'Gill Sans', sans-serif;
-    margin: 100px;
+    margin: auto;
 }
 
 @media only screen and (max-width: 767px) {
