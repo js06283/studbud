@@ -30,6 +30,9 @@ def student_form(request):
 
     return render(request, 'form.html', context)
 
+#for item in CourseInstance.objects.all():
+    #item.save()
+    
 # class CourseAutocomplete(autocomplete.Select2QuerySetView):
 #     def get_queryset(self):
 #         qs = CourseInstance.objects.all()
