@@ -4,7 +4,7 @@ from .forms import StudentForm
 from ajax_select.admin import AjaxSelectAdmin
 from import_export.admin import ImportExportModelAdmin
 
-class StudentAdmin(AjaxSelectAdmin):
+class StudentAdmin(admin.ModelAdmin):
     list_display = ['last_name', 'first_name', 'uni', 'email']
     form = StudentForm
 admin.site.register(Student, StudentAdmin)
